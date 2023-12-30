@@ -6,9 +6,11 @@ import {
   onboarding_image_3,
 } from "assets";
 import { Dimensions } from "react-native";
+import { Extrapolate, interpolate } from "react-native-reanimated";
+import spacing from "theme/spacing";
 import { getColorValue } from "utils/colors";
 
-const { width } = Dimensions.get("window");
+const { width, height } = Dimensions.get("window");
 
 export const items: OnboardingItemType[] = [
   {
@@ -50,3 +52,13 @@ export const INDICATOR_HORIZONTAL_SPACING = 4;
 export const INDICATOR_ACTIVE_WIDTH = INDICATOR_SIZE * 4.25;
 export const INDICATOR_ACTIVE_COLOR = getColorValue("grey.300");
 export const INDICATOR_COLOR = getColorValue("grey.600");
+
+/** On smaller screens, limit to 25 px */
+export const BOTTOM_CONTENT_PADDING = interpolate(
+  height,
+  [300, 900],
+  [25, 40],
+  Extrapolate.CLAMP
+);
+
+console.log({ height, BOTTOM_CONTENT_PADDING }, spacing.xl);

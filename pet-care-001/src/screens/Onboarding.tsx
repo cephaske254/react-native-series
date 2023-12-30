@@ -1,5 +1,6 @@
 import { StyleSheet, View } from "react-native";
 import {
+  BOTTOM_CONTENT_PADDING,
   ITEM_WIDTH,
   SCROLLVIEW_WIDTH,
   items,
@@ -15,7 +16,6 @@ import Animated, {
   useSharedValue,
 } from "react-native-reanimated";
 import { useMemo } from "react";
-import spacing from "theme/spacing";
 
 const OnboardingScreen = () => {
   const scrollViewRef = useAnimatedRef<Animated.ScrollView>();
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
   },
   bottomPadding: {
-    height: spacing.xl,
+    height: BOTTOM_CONTENT_PADDING,
   },
 });
 

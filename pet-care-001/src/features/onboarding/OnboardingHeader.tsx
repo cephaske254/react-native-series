@@ -1,5 +1,5 @@
 import Typography from "components/Typography";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
+import { StyleSheet, TouchableOpacity } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { getFont } from "utils/fonts";
 
@@ -11,6 +11,7 @@ const OnboardingHeader = () => {
       <Typography
         color="grey.300"
         pr="xl"
+        py="m"
         mt="m"
         fontSize={16}
         fontFamily={getFont("SFProDisplaySemibold")}
@@ -26,7 +27,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "flex-end",
     alignItems: "flex-end",
-    // backgroundColor:'red'
   },
 });
 export default OnboardingHeader;
