@@ -11,7 +11,7 @@ const OnboardingFooter: React.FC<CommonComponentProps> = (props) => {
   return (
     <View style={[styles.container, { paddingBottom: bottom }]}>
       <OnboardingFooterItemsIndicator {...props} />
-      <FooterNextButton />
+      <FooterNextButton {...props} />
     </View>
   );
 };
