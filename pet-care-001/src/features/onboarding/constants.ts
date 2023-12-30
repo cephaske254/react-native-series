@@ -31,12 +31,15 @@ export const items: OnboardingItemType[] = [
   },
 ];
 
-export const ITEM_WIDTH = width;
-
 const IMAGE_DIMENSIONS = asset_dimensions["onboarding_image_*"];
+const ORIGINAL_ASPECT_RATIO = (IMAGE_DIMENSIONS.height / IMAGE_DIMENSIONS.width); // aspect ratio = height/width
 
-export const ITEM_IMAGE_WIDTH = IMAGE_DIMENSIONS.width * 0.70; // 70% of the width
-export const ITEM_IMAGE_HEIGHT = IMAGE_DIMENSIONS.height * 0.70; // 70% of the width
+
+export const ITEM_WIDTH = width;
+export const SCROLLVIEW_WIDTH = items.length * ITEM_WIDTH;
+
+export const ITEM_IMAGE_WIDTH = ITEM_WIDTH * 0.7; // 70% of the original width
+export const ITEM_IMAGE_HEIGHT = ITEM_IMAGE_WIDTH * ORIGINAL_ASPECT_RATIO; // calculate the width height based on the new width
 
 export const FOOTER_BUTTON_SIZE = 65;
 export const FOOTER_BUTTON_ICON_SIZE = 25;
