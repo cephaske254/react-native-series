@@ -23,6 +23,8 @@ export default function App() {
     onLayout();
   }, [onLayout]);
 
+  if (!fontsError && !fontsLoaded) return null;
+
   return (
     <ThemeProvider theme={theme}>
       <View style={styles.container}>
