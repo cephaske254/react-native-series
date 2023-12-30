@@ -1,6 +1,8 @@
 const fontFiles = {
+  SFProDisplayLight: require("../assets/fonts/SFPRODISPLAYLIGHT.otf"),
   SFProDisplayRegular: require("../assets/fonts/SFPRODISPLAYREGULAR.otf"),
   SFProDisplayMedium: require("../assets/fonts/SFPRODISPLAYMEDIUM.otf"),
+  SFProDisplaySemibold: require("../assets/fonts/SFPRODISPLAYSEMIBOLD.otf"),
   SFProDisplayBold: require("../assets/fonts/SFPRODISPLAYBOLD.otf"),
 } as const;
 

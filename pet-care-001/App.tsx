@@ -4,9 +4,11 @@ import { useCallback, useEffect } from "react";
 import { StyleSheet, View } from "react-native";
 import { fontFiles } from "theme/fonts";
 import * as SplashScreen from "expo-splash-screen";
-import Typography from "components/Typography";
 import { ThemeProvider } from "@shopify/restyle";
 import theme from "theme";
+import OnboardingScreen from "screens/Onboarding";
+import { getColorValue } from "utils/colors";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 SplashScreen.hideAsync();
 
@@ -26,19 +28,21 @@ export default function App() {
   if (!fontsError && !fontsLoaded) return null;
 
   return (
-    <ThemeProvider theme={theme}>
+    <SafeAreaProvider>
       <View style={styles.container}>
-        <Typography>Open up App.tsx to start working on your app!</Typography>
-        <StatusBar style="auto" />
+        <ThemeProvider theme={theme}>
+          <StatusBar style="auto" />
+          <OnboardingScreen />
+        </ThemeProvider>
       </View>
-    </ThemeProvider>
+    </SafeAreaProvider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: getColorValue("background.main"),
     alignItems: "center",
     justifyContent: "center",
   },
