@@ -1,7 +1,7 @@
 import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
 import { useCallback, useEffect } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { fontFiles } from "theme/fonts";
 import * as SplashScreen from "expo-splash-screen";
 import Typography from "components/Typography";
