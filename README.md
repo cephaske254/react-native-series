@@ -44,7 +44,7 @@ Welcome to the React Native Tutorial Series! This repository contains a collecti
 
 ## Projects
 
-1. Project Name 1 ([pet-care-001](./pet-care-001/))
+1. Pet Care ([pet-care-001](./pet-care-001/))
 
 ## Contributions
 
