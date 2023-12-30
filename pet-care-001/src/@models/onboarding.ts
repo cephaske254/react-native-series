@@ -1,4 +1,5 @@
-import { SharedValue } from "react-native-reanimated";
+import { RefObject } from "react";
+import Animated, { SharedValue } from "react-native-reanimated";
 
 export type OnboardingItemType = {
   titles: string[];
@@ -21,4 +22,9 @@ export type CommonComponentProps = {
    * The index of the item, calculated from the scroll progress.
    */
   scrollOffsetIndex: SharedValue<number>;
+
+  /**
+   * Ref of the Animated ScrollView
+   */
+  scrollViewRef: RefObject<Animated.ScrollView>;
 };
