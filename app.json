@@ -11,9 +11,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
@@ -25,9 +23,10 @@
     },
     "web": {
       "favicon": "./src/assets/favicon.png"
+    },
+
+    "experiments": {
+      "tsconfigPaths": true
     }
-  },
-  "experiments": {
-    "tsconfigPaths": true
   }
 }

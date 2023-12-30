@@ -1,15 +1,20 @@
-import { TypographyProps } from "@shopify/restyle";
+import { BaseTheme, TextProps } from "@shopify/restyle";
+import { FontNames } from "./fonts";
+import { getFont } from "utils/fonts";
 
-type CreateTextVariants = {
-  [key: string]: TypographyProps<Theme>;
+type VariantProps = Omit<TextProps<BaseTheme>, "fontFamily"> & {
+  fontFamily?: FontNames;
 };
 
-type CreateTypography = <T extends CreateTextVariants>(themeObject: T) => T;
+type CreateTypography = (themeObject: VariantProps) => {};
 
 const createTypography: CreateTypography = (val) => val;
 
-const textVariants = createTypography({
+const textVariants = {
   header: {},
-});
+  defaults: createTypography({
+    fontFamily: getFont("SFProDisplayRegular"),
+  }),
+};
 
 export default textVariants;
