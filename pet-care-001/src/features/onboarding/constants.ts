@@ -31,9 +31,10 @@ export const items: OnboardingItemType[] = [
   },
 ];
 
-const IMAGE_DIMENSIONS = asset_dimensions["onboarding_image_*"];
-const ORIGINAL_ASPECT_RATIO = (IMAGE_DIMENSIONS.height / IMAGE_DIMENSIONS.width); // aspect ratio = height/width
+export const ITEMS_COUNT = items.length;
 
+const IMAGE_DIMENSIONS = asset_dimensions["onboarding_image_*"];
+const ORIGINAL_ASPECT_RATIO = IMAGE_DIMENSIONS.height / IMAGE_DIMENSIONS.width; // aspect ratio = height/width
 
 export const ITEM_WIDTH = width;
 export const SCROLLVIEW_WIDTH = items.length * ITEM_WIDTH;

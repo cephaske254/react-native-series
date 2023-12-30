@@ -1,4 +1,4 @@
-import { LayoutChangeEvent, StyleSheet, useAnimatedValue } from "react-native";
+import { StyleSheet, View } from "react-native";
 import {
   ITEM_WIDTH,
   SCROLLVIEW_WIDTH,
@@ -10,11 +10,12 @@ import OnboardingItemBg from "features/onboarding/OnboardingBackground";
 import OnboardingHeader from "features/onboarding/OnboardingHeader";
 import Animated, {
   useAnimatedRef,
-  useAnimatedScrollHandler,
   useDerivedValue,
   useScrollViewOffset,
   useSharedValue,
 } from "react-native-reanimated";
+import { useMemo } from "react";
+import spacing from "theme/spacing";
 
 const OnboardingScreen = () => {
   const scrollViewRef = useAnimatedRef<Animated.ScrollView>();
@@ -31,11 +32,9 @@ const OnboardingScreen = () => {
     [scrollOffset, contentWidth]
   );
 
-  const onScroll = useAnimatedScrollHandler({
-    onScroll(e) {
-      // contentWidth.value = e.contentSize.width;
-    },
-  });
+  const commonProps = useMemo(() => {
+    return { scrollProgress, scrollOffset, scrollOffsetIndex, scrollViewRef };
+  }, []);
 
   return (
     <OnboardingItemBg>
@@ -48,18 +47,28 @@ const OnboardingScreen = () => {
         snapToInterval={ITEM_WIDTH}
         decelerationRate="fast"
         ref={scrollViewRef}
-        onScroll={onScroll}
-        // To make the animations smoother when user scrolls - 16FPS
+        // To make the animations smoother when user scrolls
         scrollEventThrottle={16}
+        showsHorizontalScrollIndicator={false}
       >
         {items.map((item, index) => {
-          return <OnboardingItem {...{ item }} key={index} />;
+          return (
+            <OnboardingItem
+              {...commonProps}
+              {...{
+                item,
+                index,
+              }}
+              key={index}
+            />
+          );
         })}
       </Animated.ScrollView>
 
-      <OnboardingFooter
-        {...{ scrollProgress, scrollOffset, scrollOffsetIndex }}
-      />
+      <OnboardingFooter {...commonProps} />
+
+      {/* footer bottom spacing */}
+      <View style={styles.bottomPadding} />
     </OnboardingItemBg>
   );
 };
@@ -72,6 +81,9 @@ const styles = StyleSheet.create({
   innerContainer: {
     flexGrow: 1,
     backgroundColor: "transparent",
+  },
+  bottomPadding: {
+    height: spacing.xl,
   },
 });
 
